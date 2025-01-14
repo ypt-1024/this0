@@ -660,8 +660,8 @@
   </n-flex>
 </template>
 
-<script>
-import { defineComponent, h, ref } from "vue";
+<script setup>
+import { ref } from "vue";
 import { NIcon } from "naive-ui";
 import { RouterLink } from "vue-router";
 import {
@@ -670,9 +670,7 @@ import {
 } from "@vicons/ionicons5";
 
 // 用来渲染图标的函数
-function renderIcon(icon) {
-  return () => h(NIcon, null, { default: () => h(icon) });
-}
+const renderIcon = (icon) => () => h(NIcon, null, { default: () => h(icon) });
 
 const menuOptions = [
   {
@@ -744,15 +742,6 @@ const menuOptions = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    return {
-      // 菜单
-      activeKey: ref(null),
-      menuOptions
-    };
-  }
-});
+const activeKey = ref(null);
 </script>
-
 <style lang="scss" scoped></style>
