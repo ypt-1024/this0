@@ -1,8 +1,9 @@
 import axios from "axios";
 // 使用Naive UI Message做消息提醒
-import { useMessage } from "naive-ui";
+const { message } = createDiscreteApi(['message'])
 
 import cookie from 'js-cookie'
+import { createDiscreteApi } from "naive-ui";
 
 //1. 创建新的axios实例，
 const service = axios.create({
