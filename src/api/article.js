@@ -21,3 +21,27 @@ export const listArticleByUid = (uid) => {
         method: 'get',
     })
 }
+
+export const updataArticleById = (article) => {
+    return axios({
+        url: `/article/`,
+        method: 'put',
+        data: article,
+    })
+}
+
+export const insertArticle = (article) => {
+    return axios({
+        url: `/article/`,
+        method: 'post',
+        data: article,
+    })
+}
+
+export const deleteArticleById = (id) => {
+    return axios({
+        url: `/article/${id}`,
+        method: 'delete',
+        data: id,
+    })
+}
