@@ -3,7 +3,7 @@
 
   <!-- 添加文章按钮 -->
   <div class="tools-div">
-    <n-button @click="addShow" type="info">新增文章</n-button>
+    <n-button @click="addArticle" type="info">新增文章</n-button>
   </div>
 
   <!-- 表格数据 -->
@@ -89,13 +89,16 @@ const articleColumns = () => [
 
 let list = ref([])
 
-// 定义表格数据模型
-const defaultForm = {
-  id: '',
-  cid: '',
+// 默认文章模板
+const defaultArticle = {
   title: '',
+  introduction: '',
+  cid: '',
+  content: '',
+  uid: '',
+  id: ''
 }
-const article = ref(defaultForm)
+const article = ref(defaultArticle)
 
 //1.查询所有
 const getArticleList = async () => {
@@ -225,7 +228,9 @@ const submit = async () => {
   }
 }
 
-const addShow = async () => {
+const addArticle = async () => {
+
+  article.value = defaultArticle
 
   //渲染编辑器内容
   const content = () => h(
@@ -244,7 +249,7 @@ const addShow = async () => {
       'onUpdate:value': (val) => {
         article.value.introduction = val;
       },
-      placeholder: '请输入文章简介',
+      placeholder: '请输入文章摘要',
       size: 'large',
       style: { marginBottom: '16px' } // 添加一些底部边距以区分输入框和编辑器
     }),

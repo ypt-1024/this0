@@ -172,9 +172,11 @@ const showArticle = (id) => {
           </span>
 
           <!-- 右侧展开图标 -->
-          <svg class="icon">
-            <use xlink:href="#icon-zhankai-jingguo"></use>
-          </svg>
+          <router-link to="/login">
+            <svg class="icon">
+              <use xlink:href="#icon-a-099_nanbinqu"></use>
+            </svg>
+          </router-link>
         </n-flex>
       </div>
 
